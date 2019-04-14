@@ -1,5 +1,9 @@
 package wav
 
+import (
+	"fmt"
+)
+
 const (
 	headerSize = 44
 )
@@ -9,17 +13,32 @@ type AudioFormat int
 const (
 	AudioFormatPCM AudioFormat = iota
 	AudioFormatBitstream
+	AudioFormatInvalid
+)
+const (
+	PCMAudioFormat = "PCM"
+	BitStreamAudioFormat = "BitStream"
 )
 
 func (af AudioFormat) String() string {
 	switch af {
 	case AudioFormatPCM:
-		return "PCM"
+		return PCMAudioFormat
 	case AudioFormatBitstream:
-		return "BitStream"
+		return BitStreamAudioFormat
 	default:
 		return "Error"
 	}
+}
+
+func GetAudioFormat(format string) (AudioFormat,error){
+	switch format {
+	case PCMAudioFormat:
+		return AudioFormatPCM,nil
+	case BitStreamAudioFormat:
+		return AudioFormatBitstream,nil
+	}
+	return AudioFormatInvalid, fmt.Errorf("could not get audio format for: %s", format)
 }
 
 // WaveHeader is wave header struct

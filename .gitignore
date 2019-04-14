@@ -1,3 +1,11 @@
 *.exe
 
 cmd/wavparser/wavparser
+
+# Folders
+vendor
+
+# IDE
+.idea
+.vscode
+

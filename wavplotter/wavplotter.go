@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/takuyaohashi/go-wav"
+	"github.com/h4xorpl/go-wav"
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotter"
 	"gonum.org/v1/plot/vg"
